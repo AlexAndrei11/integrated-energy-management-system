@@ -13,7 +13,6 @@ function App() {
                 <div className="container">
                     <Routes>
                         <Route path="/admin" element={<AdminComponent />} />
-                        <Route path="/admin/" element={<AdminComponent />} />
                     </Routes>
                 </div>
                 <FooterComponent />
