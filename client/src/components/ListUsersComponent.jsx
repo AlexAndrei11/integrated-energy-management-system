@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import UserService from "../services/UserService";
 
 class ListUsersComponent extends Component {
-
     constructor(props) {
         super(props);
 
@@ -21,6 +20,9 @@ class ListUsersComponent extends Component {
         return (
             <div>
                 <h2 className="text-center">Users List</h2>
+                <div className="row">
+                    <button className="btn btn-primary"> Add User </button>
+                </div>
                 <div className="row">
                     <table className="table table-striped table-bordered">
 
