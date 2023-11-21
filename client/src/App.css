@@ -46,3 +46,32 @@
   text-align: center;
   color: white;
 }
+
+ .modal-overlay {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: 1050; /* Ensure it's above other content */
+ }
+ .modal-dialog {
+   background-color: white; /* Solid white background */
+   border-radius: 5px; /* Optional: rounded corners */
+   padding: 20px; /* Optional: some padding inside the white box */
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for depth */
+   /* Add any other styles you find suitable */
+ }
+ .error {
+   color: red;
+   font-size: 0.8em;
+   margin-top: 5px;
+ }
+
+
+
+

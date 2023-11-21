@@ -10,7 +10,7 @@ class HeaderComponent extends Component {
                         <div className="collapse navbar-collapse" id="navbarNav">
                             <ul className="navbar-nav">
                                 <li className="nav-item">
-                                    <a class="nav-link" href="http://localhost:3000/register">Register</a>
+                                    <a className="nav-link" href="http://localhost:3000/register">Register</a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="http://localhost:3000/login">Login</a>

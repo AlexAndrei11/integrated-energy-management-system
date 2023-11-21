@@ -25,6 +25,14 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public UserModel getUser(Long userId) {
+        Optional<UserModel> userOptional = userRepository.findById(userId);
+        if (userOptional.isEmpty()) {
+            throw new IllegalStateException("User with id " + userId + " doesn't exist");
+        }
+        return userOptional.get();
+    }
+
     public void createUser(UserModel userModel) {
         Optional<UserModel> userOptional = userRepository.findUserModelByEmail(userModel.getEmail());
         if (userOptional.isPresent()) {

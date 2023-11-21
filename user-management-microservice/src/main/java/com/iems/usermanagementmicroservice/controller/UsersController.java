@@ -3,6 +3,8 @@ package com.iems.usermanagementmicroservice.controller;
 import com.iems.usermanagementmicroservice.model.UserModel;
 import com.iems.usermanagementmicroservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,6 +24,16 @@ public class UsersController {
     @GetMapping
     public List<UserModel> getUsers() {
         return userService.getUsers();
+    }
+
+    @GetMapping(path = "/{userId}")
+    public ResponseEntity<UserModel> getUser(@PathVariable("userId") Long userId) {
+        try {
+            UserModel userModel = userService.getUser(userId);
+            return new ResponseEntity<>(userModel, HttpStatus.OK);
+        } catch (IllegalStateException exception) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @PostMapping

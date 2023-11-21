@@ -45,6 +45,6 @@ public class DevicesController {
 
     @PutMapping
     public void updateDevice(@RequestBody DeviceModel deviceModel) {
-        deviceService.updateDevice(deviceModel);
+        deviceService.createDevice(deviceModel);
     }
 }

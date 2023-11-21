@@ -8,8 +8,16 @@ class UserService {
         return axios.get(USERS_API_BASE_URL);
     }
 
-    createUser(userData) {
-        return axios.post(USERS_API_BASE_URL, userData);
+    createUser(user) {
+        return axios.post(USERS_API_BASE_URL, user);
+    }
+
+    updateUser(user) {
+        return axios.put(USERS_API_BASE_URL, user);
+    }
+
+    deleteUser(userId) {
+        return axios.delete(`${USERS_API_BASE_URL}/${userId}`);
     }
 }
 
