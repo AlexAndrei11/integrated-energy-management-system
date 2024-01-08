@@ -51,10 +51,6 @@ public class UserService {
     }
 
     public void updateUser(UserModel userModel) {
-        Optional<UserModel> userOptional = userRepository.findUserModelByEmail(userModel.getEmail());
-        if (userOptional.isPresent()) {
-            throw new IllegalStateException("Email is taken");
-        }
         userRepository.save(userModel);
     }
 }
