@@ -14,10 +14,10 @@ function LoginComponent() {
         e.preventDefault();
         try {
             const response = await AuthService.login({ email, password });
-            console.log('Login successful', response.data);
-            // Handle successful login here (e.g., redirect, store token)
-            if (response) {
-                setAuthInfo({ token: response.token, userId: response.userId });
+            setAuthInfo({ token: response.token, userId: response.userId, isAdmin: response.isAdmin });
+            if (response.isAdmin) {
+                navigate('/admin');
+            } else {
                 navigate(`/user-devices/${response.userId}`);
             }
         } catch (err) {
@@ -25,6 +25,7 @@ function LoginComponent() {
             console.error('Login error', err);
         }
     };
+
 
     return (
         <div>

@@ -6,6 +6,8 @@ import AdminComponent from "./components/AdminComponent";
 import UserDevicesWrapper from "./components/UserDevicesWrapper";
 import LoginComponent from "./components/LoginComponent";
 import PrivateRoute from "./routes/PrivateRoute.jsx";
+import RegisterComponent from "./components/RegisterComponent";
+import AdminRoute from "./routes/AdminRoute";
 
 function App() {
     return (
@@ -14,8 +16,13 @@ function App() {
                 <HeaderComponent />
                     <div className="container">
                         <Routes>
-                            <Route path="/login" element={<LoginComponent />}></Route>
-                            <Route path="/admin" element={<AdminComponent />}></Route>
+                            <Route path="/login" element={<LoginComponent />} />
+                            <Route path="/register" element={<RegisterComponent />} />
+                            <Route path="/admin" element={
+                                <AdminRoute>
+                                    <AdminComponent />
+                                </AdminRoute>
+                            } />
                             <Route path="/user-devices/:userId" element={
                                 <PrivateRoute>
                                     <UserDevicesWrapper />

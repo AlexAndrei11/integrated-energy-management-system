@@ -45,9 +45,11 @@ public class AuthenticationService {
         var user = userRepository.findUserModelByEmail(request.getEmail())
                 .orElseThrow();
         var jwtToken = jwtService.generateToken(user);
+        Boolean isAdmin = user.getRole() == Role.ADMIN;
         return AuthenticationResponse.builder()
                 .token(jwtToken)
                 .userId(user.getId())
+                .isAdmin(isAdmin)
                 .build();
     }
 }
