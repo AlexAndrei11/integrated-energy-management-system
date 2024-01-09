@@ -6,7 +6,6 @@ import AdminComponent from "./components/AdminComponent";
 import UserDevicesWrapper from "./components/UserDevicesWrapper";
 import LoginComponent from "./components/LoginComponent";
 import PrivateRoute from "./routes/PrivateRoute.jsx";
-import UserDevicesComponent from "./components/UserDevicesComponent";
 
 function App() {
     return (
@@ -15,8 +14,8 @@ function App() {
                 <HeaderComponent />
                     <div className="container">
                         <Routes>
-                            <Route path="/login" exact element={<LoginComponent />}></Route>
-                            <Route path="/admin" exact element={<AdminComponent />}></Route>
+                            <Route path="/login" element={<LoginComponent />}></Route>
+                            <Route path="/admin" element={<AdminComponent />}></Route>
                             <Route path="/user-devices/:userId" element={
                                 <PrivateRoute>
                                     <UserDevicesWrapper />
