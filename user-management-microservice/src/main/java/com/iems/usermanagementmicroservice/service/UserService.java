@@ -1,5 +1,6 @@
 package com.iems.usermanagementmicroservice.service;
 
+import com.iems.usermanagementmicroservice.model.Role;
 import com.iems.usermanagementmicroservice.model.UserModel;
 import com.iems.usermanagementmicroservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,7 @@ public class UserService {
         if (userOptional.isPresent()) {
             throw new IllegalStateException("Email is taken");
         }
+        userModel.setRole(Role.USER);
         userRepository.save(userModel);
     }
 
