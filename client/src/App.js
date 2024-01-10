@@ -30,7 +30,7 @@ function App() {
                             } />
                         </Routes>
                     </div>
-                <FooterComponent />
+                {/*<FooterComponent />*/}
             </Router>
         </div>
     );
