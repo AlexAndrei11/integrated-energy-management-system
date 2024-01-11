@@ -1,6 +1,5 @@
-package com.iems.usermanagementmicroservice.config;
+package com.iems.devicemanagementmicroservice.config;
 
-import com.iems.usermanagementmicroservice.model.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +16,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class SecurityConfiguration {
 
     private final JwtAuthenticationFilter jwtAuthFilter;
-    private final AuthenticationProvider authenticationProvider;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -25,13 +23,10 @@ public class SecurityConfiguration {
         http
                 .csrf().disable()
                 .authorizeHttpRequests()
-                    .requestMatchers("/auth/**").permitAll()
-                    .requestMatchers("/users/{userId}").permitAll()
-                    .anyRequest().hasAuthority(String.valueOf(Role.ADMIN))
+                .requestMatchers("/devices/**").permitAll()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
